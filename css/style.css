@@ -1,0 +1,140 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+:root {
+  /* Couleurs de Marque (Brand Colors) */
+  --primary: #00f0ff;          
+  --primary-variant: #0080ff;  
+  --on-primary: #060e20;      
+  
+  /* Surfaces et Fonds */
+  --surface: #0b1326;          
+  --surface-bright: #31394d;   
+  --outline: #31394d;         
+
+  /* Typographie */
+  --font-display: 'Black Ops One', sans-serif;
+  --font-body: 'Work Sans', sans-serif;
+
+  /* Espacement et Arrondis */
+  --radius-md: 8px;           
+  --margin-desktop: 5%;     
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: var(--font-display);
+}
+
+body {
+  font-family: var(--font-body);
+  
+}
+
+header {
+  padding: 0.4rem 0rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5rem 1rem;
+
+  & .logo {
+    font-family: var(--font-display);
+    color: #00687B;
+  }
+
+  & nav {
+    display: flex;
+    gap: 1rem;
+
+    & ul {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+
+      & li {
+        position: relative;
+        cursor: pointer;
+        padding: 0rem 0 0.5rem 0;
+
+        /* Création de la barre d'effet sous le li */
+        &::after {
+          content: "";
+          position: absolute;
+          background-color: #00687B;
+          height: 3px;
+          width: 0;
+          left: 0;
+          bottom: 0;
+          transition: 0.3s;
+        }
+
+        /* Au survol, la barre passe à 100% de largeur */
+        &:hover::after {
+          width: 100%;
+        }
+
+        /* Changement de couleur au focus */
+        &:focus {
+          color: #00687B;
+        }
+      }
+
+      & a {
+        text-decoration: none;
+        color: var(--on-primary);
+        font-weight: 550;
+
+        &:hover {
+          color: #00687B;
+        }
+      }
+    }
+  }
+  & div {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    & i {
+      font-size: 1.1rem;
+      cursor: pointer;
+      color: var(--on-primary);
+      transform: rotate(-15deg);
+      transition: 0.3s;
+
+      &:hover {
+        color: #00687B;
+        transform: rotate(20deg);
+      }
+    }
+
+    & button {
+      background-color: var(--primary);
+      color: white;
+      font-weight: 600;
+      border: none;
+      padding: 0.7rem 1.2rem;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        background-color: #005f6b;
+      }
+    }
+  }
+}
+.hero {
+  background: linear-gradient(170deg, #ffffff 50%, rgba(0, 240, 255, 0.15) 90%);
+  width: 100%;
+  height: 100vh; 
+}
+
+

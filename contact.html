@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,162 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/9fd1c84033.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
 
-<script src="js/main.js"></script>   
+    <header>
+        <div class="logo">
+            AfriConnect
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="programme.html">Programme</a></li>
+                <li><a href="intervenants.html">Intervenants</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <i class="fa-regular fa-moon"></i>
+            <button>Register</button>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <p>Accueil > <span>Contact</span></p>
+            <h1>Inscrivez-vous et <spam>Connectez-vous</spam>
+            </h1>
+            <p>Rejoignez l'écosystème technologique le plus dynamique du continent. <br> Inscrivez-vous pour le sommet
+                ou contactez nos experts pour vos besoins <br> spécifiques.</p>
+            <div>
+                <div>
+                    <form>
+                        <div>
+                            <label for="nom">Nom</label>
+                            <input type="text" id="nom" autocomplete="name">
+                            <span class="erreur" id="erreur-nom"></span>
+                        </div>
+                        <div>
+                            <label for="prenom">Prenom</label>
+                            <input type="text" id="prenom" autocomplete="given-name">
+                            <span class="erreur" id="erreur-prenom"></span>
+                        </div>
+                            <span class="erreur" id="erreur-prenom"></span>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label for="email">Email</label>
+                            <input type="email" id="email">
+                            <span class="erreur" id="erreur-email"></span>
+                        </div>
+                        <div>
+                            <label for="info">Type de Participation</label>
+                            <select name="info" class="form-control" id="info">
+                                <option value="demande">visite standard</option>
+                                <option value="Recrutement">Exposant Startup</option>
+                                <option value="freelance">Press & Media</option>
+                                <option value="support">intervenant</option>
+                                <option value="Autre">Participation Autre</option>
+                            </select>
+                            <span class="erreur" id="erreur-info"></span>
+
+                        </div>
+                        <div>
+                            <label for="message">Message</label>
+                            <textarea name="message" id="message" placeholder="Comment pouvons-nous vous aider ?"
+                            ></textarea>
+                            <span class="erreur" id="erreur-message"></span>
+                        </div>
+                        <div class="col-12 submit ">
+                            <button type="submit">Envoyer ma demande <i
+                                    ></i></button>
+                            <p id="succes"></p>
+                        </div>
+                    </form>
+                </div>
+                <div>
+                   <div>
+                        <i class="fa-regular fa-envelope"></i>
+                        <h2>Email</h2>
+                        <p>contact@africonnect.tech</p>
+
+                   </div>
+                    <div>
+                        <i class="fa-solid fa-phone"></i>
+                        <h2>Téléphone</h2>
+                        <p>+221 33 888 88 88</p>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <h2>Adresse</h2>
+                        <p>123 Rue de l'Innovation<br>
+                            Dakar, Sénégal</p>
+                    </div>
+                    </div>
+                        <h5>Sommet 2026</h5>
+                        <p>Préparez-vous à l'accélération digitale <br> de l'Afrique.</p>
+                        
+                    </div>
+            </div>
+
+            <section class="faq">
+                <h2>Questions Fréquentes</h2>
+                <deltails>
+                    <summary>Comment puis-je m'inscrire au sommet ?</summary> <i class="fa-solid fa-angle-down"></i>
+                    <p>Vous pouvez vous inscrire en remplissant le formulaire de contact ci-dessus ou en visitant notre
+                        page d'inscription dédiée.</p>
+                </details>
+                <details>   
+                    <summary>Quels sont les modes de paiement acceptés ?</summary><i class="fa-solid fa-angle-down"></i>
+                    <p>Nous acceptons les paiements par carte de crédit, virement bancaire et PayPal.</p>
+                </details>
+                <details>
+                    <summary>Y a-t-il des réductions pour les groupes ou les étudiants ?</summary><i class="fa-solid fa-angle-down"></i>
+                    <p>Oui, nous offrons des tarifs réduits pour les groupes et les étudiants. Veuillez nous contacter pour
+                        plus de détails.</p>
+                </details>
+                <details>
+                    <summary>Comment puis-je devenir un intervenant ou un sponsor ?</summary><i class="fa-solid fa-angle-down"></i>
+                    <p>Pour devenir un intervenant ou un sponsor, veuillez nous envoyer un email à contact@africonnect.tech.</p>
+                </details>
+                <details>
+                    <summary>Y aura-t-il des sessions de networking ?</summary><i class="fa-solid fa-angle-down"></i>
+                    <p>Oui, le sommet comprendra plusieurs sessions de networking pour favoriser les collaborations et les
+                        partenariats.</p>
+                </details>
+            </section>
+
+
+              <div>
+                    <h2>Carte</h2>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.1234567890123!2d-17.1234567890123!3d14.1234567890123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0x0000000000000000!2sAfriConnect%20Summit!5e0!3m2!1sen!2sfr!4v1234567890123" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+
+
+    </main>
+
+      <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>AfriConnect Summit</h3>
+                <p>Rejoignez-nous pour trois jours d'inspiration, <br> de networking et de collaboration au cœur de <br>
+                    l'écosystème tech africain.</p>
+            </div>
+            <div class="footer-section links">
+                <h2>Liens Utiles</h2>
+                 <ul>
+                    <li><a href="#">privacy policy</a></li>
+                    <li><a href="#">termes d'utilisation</a></li>
+                    <li><a href="#">Informations légales</a></li>
+                    <li><a href="#">sponsorships</a></li>
+                </ul>
+            </div>
+            <div>
+                <p>&copy; 2026 AfriConnect Summit. Tous droits réservés.</p>
+            </div>
+
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
+
 </html>

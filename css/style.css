@@ -1449,3 +1449,431 @@ footer {
         }
     }
 }
+
+/* ==========================================================
+   RESPONSIVE - AfriConnect Summit
+   ========================================================== */
+
+/* Bouton hamburger - caché par défaut (desktop) */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--on-primary);
+    cursor: pointer;
+    z-index: 1200;
+    transition: 0.3s;
+}
+
+.menu-toggle.active {
+    color: var(--primary);
+}
+
+/* ============================================================
+   TABLETTE : max-width 1024px
+   ============================================================ */
+@media (max-width: 1024px) {
+
+    .hero > :nth-child(5) {
+        width: 90%;
+        gap: 3rem;
+        flex-wrap: wrap;
+    }
+
+    .participer .participer-list {
+        flex-wrap: wrap;
+
+        & div {
+            width: 45%;
+        }
+    }
+
+    .entreprise-logos {
+        gap: 2.5rem;
+        margin-left: 2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Cartes intervenants (accueil) : 2x2 */
+    .intervenants .intervenants-list {
+        flex-wrap: wrap;
+        row-gap: 2rem;
+
+        & .intervenant {
+            width: calc(50% - 1rem);
+        }
+    }
+
+    /* Page Intervenants (liste complète) : 2 colonnes */
+    .carts {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 1.5rem;
+    }
+
+    .thematique {
+        padding: 3rem 3%;
+    }
+
+    .Action {
+        width: 90%;
+    }
+
+    /* Contact : 1 colonne, infos en 2 colonnes */
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-info {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+
+        & > div {
+            width: calc(50% - 0.5rem);
+        }
+
+        & > div:last-child {
+            width: 100%;
+            align-items: flex-start;
+            text-align: left;
+        }
+    }
+}
+
+/* ============================================================
+   MOBILE : max-width 768px
+   ============================================================ */
+@media (max-width: 768px) {
+
+    /* --- Header : logo à gauche, lune + hamburger groupés à droite --- */
+    header {
+        padding: 0.6rem 1rem;
+    }
+
+    header .logo {
+        order: 1;
+    }
+
+    header > div:last-child {
+        order: 2;
+        margin-left: auto;
+        margin-right: 0.6rem;
+        gap: 0;
+
+        & button {
+            display: none;
+        }
+
+        & i {
+            font-size: 1.3rem;
+        }
+    }
+
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+        order: 3;
+    }
+
+    /* --- Nav en panneau latéral --- */
+    header nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        max-width: 320px;
+        height: 100vh;
+        background-color: #F5FAFC;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 6rem 2rem;
+        box-shadow: -4px 0 15px rgba(0, 0, 0, 0.15);
+        transition: right 0.35s ease;
+        z-index: 1100;
+
+        & ul {
+            flex-direction: column;
+            gap: 1.8rem;
+            width: 100%;
+        }
+    }
+
+    header nav.nav-open {
+        right: 0;
+    }
+
+    /* --- Hero (accueil) --- */
+    .hero {
+        margin-top: 6rem;
+    }
+
+    .hero > :nth-child(2) {
+        font-size: 2rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .hero > :nth-child(3) {
+        font-size: 0.9rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 85%;
+        margin-left: auto;
+        margin-right: auto;
+
+        & button {
+            width: 100%;
+        }
+    }
+
+    .hero > :nth-child(5) {
+        width: 92%;
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+
+    /* --- Chiffres clés --- */
+    .chiffre-cles {
+        flex-wrap: wrap;
+        gap: 2rem 1rem;
+    }
+
+    /* --- Pourquoi participer --- */
+    .participer .participer-list {
+        flex-direction: column;
+        align-items: center;
+
+        & div {
+            width: 85%;
+        }
+    }
+
+    /* --- Cartes intervenants (accueil) : 1 par ligne --- */
+    .intervenants .intervenants-list {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        row-gap: 1.5rem;
+
+        & .intervenant {
+            width: 100%;   /* reset de la règle tablette (50%) */
+        }
+    }
+
+    .intervenants h1 {
+        font-size: 1.8rem;
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .intervenants > :nth-child(2) {
+        flex-direction: column;
+        text-align: center;
+        margin-right: 0;
+        gap: 0.5rem;
+    }
+
+    /* --- Entreprises --- */
+    .entreprise-logos {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        margin-left: 0;
+        margin-right: 0;
+        text-align: center;
+    }
+
+    /* --- Footer --- */
+    .footer-content {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+        align-items: center;
+    }
+
+    /* --- Page Programme --- */
+    .programme {
+        margin-left: 1.2rem;
+        margin-right: 1.2rem;
+
+        & h1 {
+            font-size: 2rem;
+        }
+    }
+
+    .jour .jours {
+        flex-wrap: wrap;
+        padding: 1rem;
+        gap: 0.6rem;
+
+        & button {
+            padding: 0.5rem 1.2rem;
+            font-size: 0.9rem;
+        }
+    }
+
+    .jour .horaires > div {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        width: 92%;
+
+        & .contenu .meta {
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+    }
+
+    .thematique {
+        grid-template-columns: 1fr;
+        padding: 3rem 1.2rem;
+    }
+
+    /* --- Page Intervenants (liste complète) : 1 par ligne --- */
+    .intervenants-list .filtres {
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        padding: 1.5rem 0;
+    }
+
+    .carts {
+        grid-template-columns: 1fr;   /* reset de la règle tablette (2 colonnes) */
+        padding: 0 1.2rem;
+    }
+
+    .Action {
+        width: 92%;
+        padding: 3rem 1.5rem;
+
+        & h1 {
+            font-size: 1.8rem;
+        }
+
+        & div {
+            flex-direction: column;
+            width: 100%;
+
+            & a {
+                text-align: center;
+            }
+        }
+    }
+
+    /* --- Page Contact --- */
+    .hero2 {
+        margin-top: 6rem;
+        margin-left: 1.2rem;
+        margin-right: 1.2rem;
+
+        & h1 {
+            font-size: 1.8rem;
+        }
+
+        & > p:nth-of-type(2) {
+            font-size: 0.9rem;
+        }
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .form-card {
+        padding: 1.5rem;
+
+        & form {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+
+            & > div:nth-child(1),
+            & > div:nth-child(2) {
+                grid-column: span 1;
+            }
+
+            & .submit {
+                width: 100%;
+
+                & button {
+                    width: 100%;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+
+    .contact-info {
+        flex-direction: column;
+        gap: 1rem;
+
+        & > div {
+            width: 100%;   /* reset de la règle tablette (50%) */
+            padding: 1rem;
+            align-items: flex-start;
+
+            & i {
+                margin-top: 0.2rem;
+            }
+        }
+
+        & > div:last-child {
+            align-items: flex-start;
+            text-align: left;
+        }
+    }
+
+    .faq {
+        margin-left: 1.2rem;
+        margin-right: 1.2rem;
+        margin-top: 3rem;
+
+        & > h2 {
+            font-size: 1.3rem;
+        }
+
+        & details {
+            padding: 1rem;
+
+            & summary {
+                font-size: 0.9rem;
+            }
+        }
+    }
+}
+/* ============================================================
+   PETIT MOBILE : max-width 480px
+   ============================================================ */
+@media (max-width: 480px) {
+
+    .hero > :nth-child(2) {
+        font-size: 1.6rem;
+    }
+
+    .hero > :nth-child(5) {
+        flex-wrap: wrap;
+        gap: 1rem;
+
+        & div {
+            width: 45%;
+        }
+    }
+
+    .chiffre-cles {
+        gap: 1.5rem;
+    }
+
+    .programme h1 {
+        font-size: 1.6rem;
+    }
+
+    .contact-info > div {
+        padding: 1rem;
+    }
+
+    .Action h1 {
+        font-size: 1.4rem;
+    }
+}

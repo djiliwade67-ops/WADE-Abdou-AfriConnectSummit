@@ -73,3 +73,86 @@ if (backToTop) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 }
+
+// ==========================================================
+// COMPTEURS ANIMÉS AU SCROLL
+// ==========================================================
+function animateCounter(el) {
+    const target = parseInt(el.dataset.target, 10);
+    const duration = 1800; // ms
+    const startTime = performance.now();
+
+    function tick(now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        // easeOutQuad pour un mouvement plus naturel
+        const eased = 1 - (1 - progress) * (1 - progress);
+        el.textContent = Math.floor(eased * target);
+
+        if (progress < 1) {
+            requestAnimationFrame(tick);
+        } else {
+            el.textContent = target; // valeur exacte à la fin
+        }
+    }
+    requestAnimationFrame(tick);
+}
+
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const counterObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            if (prefersReducedMotion) {
+                entry.target.textContent = entry.target.dataset.target;
+            } else {
+                animateCounter(entry.target);
+            }
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+
+
+// ==========================================================
+// FADE-IN AU SCROLL (sections + cartes en cascade)
+// ==========================================================
+
+// Sections principales : fade-in simple
+document.querySelectorAll('main section').forEach(section => {
+    section.classList.add('fade-in');
+});
+
+// Groupes de cartes : fade-in en cascade (stagger)
+const cardGroupsSelectors = [
+    '.chiffre-cles .chiffres',
+    '.participer-list > div',
+    '.intervenants-list .intervenant',
+    '.carts .intervenant',
+    '.thematique > div',
+    '.jour .horaires > div',
+    '.faq details',
+    '.contact-info > div'
+];
+
+cardGroupsSelectors.forEach(selector => {
+    const items = document.querySelectorAll(selector);
+    items.forEach((item, index) => {
+        item.classList.add('fade-in-item');
+        item.style.transitionDelay = prefersReducedMotion ? '0s' : `${Math.min(index * 0.08, 0.5)}s`;
+    });
+});
+
+// Un seul observer pour tous les éléments fade-in / fade-in-item
+const fadeObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.fade-in, .fade-in-item').forEach(el => fadeObserver.observe(el));
+

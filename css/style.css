@@ -856,10 +856,12 @@ footer {
         border-top: 4px solid var(--primary);
         border-radius: var(--radius-md);
         padding: 2rem;
-        transition: 0.35s;
+        transition: 7s;
+    
 
 
         &:hover {
+            transition: all 0.35s ease-in-out;
             transform: translateY(-6px);
             border-color: var(--primary);
             box-shadow: 0 12px 24px rgba(12, 193, 227, 0.18);
@@ -2434,4 +2436,148 @@ html[data-theme="dark"] #back-to-top {
         height: 2.6rem;
         font-size: 1rem;
     }
+}
+
+/* ==========================================================
+   ANIMATIONS : FADE-IN AU SCROLL
+   ========================================================== */
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.1, 0.25, 1),
+                transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in-item {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+    transition: opacity 0.6s cubic-bezier(0.25, 0.1, 0.25, 1),
+                transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.fade-in-item.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* La toute première section (hero) ne doit pas attendre le scroll */
+main > section:first-child.fade-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+}
+
+/* Respect de l'accessibilité : désactive les animations si demandé par l'utilisateur */
+@media (prefers-reduced-motion: reduce) {
+    .fade-in,
+    .fade-in-item {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+/* ============================================================
+   ANIMATION CYBERPUNK ADAPTÉE À TON HTML
+   ============================================================ */
+
+/* 1. Animation Révélation (Flou -> Clarté + Montée) */
+.hero > div,
+.fade-in-title,
+.hero > p,
+.hero-buttons,
+.hero > div:last-child,
+.programme :nth-child(1),
+.programme :nth-child(2),
+.programme :nth-child(3),
+.jour .jours :nth-child(1),
+.jour .jours :nth-child(2),
+.jour .jours :nth-child(3),
+.intervenants :nth-child(1),
+.intervenants :nth-child(2),
+.intervenants :nth-child(3),
+.intervenants :nth-child(4),
+.filtres :nth-child(1),
+.filtres :nth-child(2),
+.filtres :nth-child(3),
+.filtres :nth-child(4),
+.filtres :nth-child(5),
+.hero2 :nth-child(1),
+.hero2 :nth-child(2),
+.hero2 :nth-child(3),
+.programme > h4,
+.programme > div {
+  position: relative;
+  opacity: 0;
+  transform: translateY(25px);
+  filter: blur(8px);
+  animation: cyberpunkFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cyberpunkFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Apparition séquentielle élément par élément dans le Hero */
+.hero > div:nth-child(1)  { animation-delay: 0.1s; }
+.programme :nth-child(1) { animation-delay: 0.1s; } /* Badge Date */
+.intervenants :nth-child(1){ animation-delay: 0.1s; }
+.hero2 :nth-child(1) { animation-delay: 0.1s; }
+.hero2 :nth-child(2) { animation-delay: 0.3s; }
+.hero2 :nth-child(3) { animation-delay: 0.5s; }
+.intervenants :nth-child(2) { animation-delay: 0.3s; }
+.intervenants :nth-child(3) { animation-delay: 0.5s; }
+.intervenants :nth-child(4) { animation-delay: 0.7s; }
+
+.fade-in-title          { animation-delay: 0.3s; } /* Titre h1 */
+.hero > p { animation-delay: 0.5s; } 
+.programme :nth-child(2) { animation-delay: 0.3s; } /* Description */
+.hero-buttons            { animation-delay: 0.7s; } /* Boutons */
+.programme :nth-child(3) { animation-delay: 0.7s; } /* Description + Badge Prix */
+.hero > div:last-child   { animation-delay: 0.9s; } /* Compte à rebours */
+.filtres :nth-child(1)   { animation-delay: 0.9s; } /* Compte à rebours */
+.filtres :nth-child(2)   { animation-delay: 1.1s; } /* Compte à rebours */
+.filtres :nth-child(3)   { animation-delay: 1.3s; } /* Compte à rebours */
+.filtres :nth-child(4)   { animation-delay: 1.5s; } /* Compte à rebours */
+.filtres :nth-child(5)   { animation-delay: 1.7s; } /* Compte à rebours */
+.jour .jours :nth-child(1)  { animation-delay: 0.9s; } /* Compte à rebours */
+.jour .jours :nth-child(2)  { animation-delay: 1.1s; } /* Compte à rebours */
+.jour .jours :nth-child(3)  { animation-delay: 1.3s; } /* Compte à rebours */
+
+@keyframes cyberShimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* 3. Pulsation Néon au survol sur le bouton principal */
+.cta-button1 {
+  transition: all 0.3s ease !important;
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.25);
+}
+
+.cta-button1:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 0 25px rgba(0, 242, 254, 0.6), 0 0 40px rgba(79, 172, 254, 0.4);
+}
+
+/* 4. Contour Lumineux sur le bloc du Compte à Rebours */
+.hero > div:last-child {
+  border: 1px solid rgba(0, 242, 254, 0.2);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hero > div:last-child:hover {
+  border-color: rgba(0, 242, 254, 0.6);
+  box-shadow: 0 0 20px rgba(0, 242, 254, 0.2);
 }

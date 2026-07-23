@@ -498,6 +498,39 @@ header {
 
 }
 
+/* Style de base des boutons du programme */
+.jours .time {
+  padding: 10px 22px;
+  border: 2px solid #ccc;
+  background-color: transparent;
+  color: #333;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* 1er bouton ACTIF : Bleu */
+.jours .time:nth-child(1).active {
+  background-color:#dbe9ff;
+  border-color:#dbe9ff;
+  color: #2563eb;
+}
+
+/* 2ème bouton ACTIF : Orange */
+.jours .time:nth-child(2).active {
+  background-color:rgb(254, 235, 217);
+  border-color:rgb(254, 235, 217) ;
+  color:#f97316;
+}
+
+/* 3ème bouton ACTIF : Mauve */
+.jours .time:nth-child(3).active {
+  background-color: #ede4ff;
+  border-color: #ede4ff;
+  color: #9333ea;
+}
+
 footer {
     margin-top: 5rem;
     background-color: #2B3133;

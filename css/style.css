@@ -1589,6 +1589,11 @@ footer {
         padding: 0.6rem 1rem;
     }
 
+    .hero{
+        margin-top: 5rem;
+        padding-top: 0rem;
+    }
+
     header .logo {
         order: 1;
     }
@@ -1887,6 +1892,11 @@ footer {
 
     .hero > :nth-child(2) {
         font-size: 1.6rem;
+    }
+
+    .hero{
+        margin-top:5rem;
+        padding-top: 0;
     }
 
     .hero > :nth-child(5) {
@@ -2189,12 +2199,10 @@ html[data-theme="dark"] {
         color: var(--dark-text-muted);
          transition: all 0.3s ease-in-out;
         
-        &:hover,
-        &.a{
-            background-color: var(--primary);
-            color: var(--on-primary);
-        }
+       
     }
+
+ 
 
     & .jour .horaires > div {
         background-color: var(--dark-surface);
@@ -2204,6 +2212,7 @@ html[data-theme="dark"] {
         & .contenu h2 {
             color: var(--dark-text);
         }
+
 
         & .contenu .meta p {
             color: var(--dark-text-muted);

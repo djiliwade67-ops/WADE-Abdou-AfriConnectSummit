@@ -228,7 +228,7 @@ if (envoyerBtn && emailInput) {
 }
 
 // --- FILTRE DES CARTES ET DES EVENEMENTS ---
-let bouttons = document.querySelectorAll(".filtres .bouton");
+let bouttons = document.querySelectorAll(".filtres .button");
 let cartes = document.querySelectorAll(".carts .intervenant");
 
 if (bouttons.length > 0 && cartes.length > 0) {
